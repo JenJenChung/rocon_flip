@@ -1,0 +1,10 @@
+#!/bin/bash
+
+flip_topics=(clock map tf tf_static)
+remotes=(aadi10_gateway)
+
+for i in ${flip_topics[@]}; do
+  for j in ${remotes[@]}; do
+    rosrun rocon_flip flip_hub_publisher.py $i $j
+  done
+done
