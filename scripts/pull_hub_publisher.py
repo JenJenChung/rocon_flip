@@ -18,7 +18,7 @@ def pull(topic):
   rule.name = '/' + topic
   rule.type = gateway_msgs.ConnectionType.PUBLISHER
   rule.node = ""
-  req.remotes.append(RemoteRule(remote_gateway, rule))
+  req.remotes.append(gateway_msgs.RemoteRule(remote_gateway, rule))
   rospy.loginfo("Pull : [%s,%s,%s,%s]."%(remote_gateway, rule.name, rule.type, rule.node))
 
   resp = pull_service(req)
