@@ -1,10 +1,7 @@
 #!/bin/bash
 
 advertise_topics=(clock map tf tf_static)
-remotes=(aadi10_gateway)
 
 for i in ${advertise_topics[@]}; do
-  for j in ${remotes[@]}; do
-    rosrun rocon_flip advertise_hub_publisher.py $i $j
-  done
+  rosrun rocon_flip advertise_hub_publisher.py $i
 done

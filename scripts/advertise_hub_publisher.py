@@ -16,7 +16,7 @@ def advertise(topic):
   rule.type = gateway_msgs.ConnectionType.PUBLISHER
   rule.node = ""
   req.rules.append(rule)
-  rospy.loginfo("Advertise : [%s,%s,%s,%s]."%(remote_gateway, rule.name, rule.type, rule.node))
+  rospy.loginfo("Advertise : [%s,%s,%s]."%(rule.name, rule.type, rule.node))
 
   resp = advertise_service(req)
   if resp.result != 0:

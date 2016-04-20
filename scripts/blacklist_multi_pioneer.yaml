@@ -1,0 +1,32 @@
+default_blacklist: 
+    - name: /rosout.*
+      node: None
+      type: publisher
+    - name: /rosout.*
+      node: None
+      type: subscriber
+    - name: .*get_loggers
+      node: None
+      type: service
+    - name: .*set_logger_level
+      node: None
+      type: service
+    - name: .*zeroconf.*
+      node: None
+      type: publisher
+    - name: .*zeroconf.*
+      node: None
+      type: subscriber
+    - name: .*zeroconf.*
+      node: None
+      type: service
+    - name: .*gateway/.*
+      node: None
+      type: service
+    - name: .*gateway/.*
+      node: None
+      type: publisher
+    - name: .*gateway/.*
+      node: None
+      type: subscriber
+      
