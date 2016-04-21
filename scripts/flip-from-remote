@@ -1,6 +1,6 @@
 #!/bin/bash
 
-namespace=(pioneer1)
+namespace=($ROBOT_NAME)
 sub_topics=(base_scan odom)
 sub_nodes=(amcl move_base)
 sub_len=${#sub_topics[@]}
