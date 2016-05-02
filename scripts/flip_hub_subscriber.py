@@ -32,7 +32,7 @@ def flip(namespace, topic, node, gate):
 if __name__=='__main__':
   try:
     if len(sys.argv) < 5:
-      print('Usage: flip_remote_subscriber.py namespace topic node gate')
+      print('Usage: flip_hub_subscriber.py namespace topic node gate')
     else:
       flip(str(sys.argv[1]),str(sys.argv[2]),str(sys.argv[3]),str(sys.argv[4]))
   except rospy.ROSInterruptException:
