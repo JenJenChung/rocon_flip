@@ -1,0 +1,11 @@
+#!/bin/bash
+
+namespace=($ROBOT_NAME)
+pub_topics=(odom membership delay)
+pub_nodes=(pioneer3dx_odometry_publisher pioneer_traffic pioneer_traffic)
+pub_len=${#pub_topics[@]}
+
+for (( i=0; i<${pub_len}; i++ )); do
+  rosrun rocon_flip flip_remote_publisher.py ${namespace[0]} ${pub_topics[$i]} ${pub_nodes[$i]}
+done
+

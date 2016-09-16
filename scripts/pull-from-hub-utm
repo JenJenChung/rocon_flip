@@ -1,0 +1,7 @@
+#!/bin/bash
+
+pull_topics=(utm_graph)
+
+for i in ${pull_topics[@]}; do
+  rosrun rocon_flip pull_hub_publisher.py $i
+done
