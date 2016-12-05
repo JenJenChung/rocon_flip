@@ -1,7 +1,7 @@
 #!/bin/bash
 
-namespace=(pioneer1 pioneer2 pioneer3 pioneer4 pioneer5)
-remotes=(aadi1 aadi2 aadi3 aadi4 aadi5)
+namespace=(pioneer1 pioneer2) #pioneer2 pioneer3 pioneer4 pioneer5)
+remotes=(aadi1 aadi4) #aadi2 aadi3 aadi4 aadi5)
 sub_topics=(/tf move_base/current_goal move_base/local_costmap/costmap move_base/local_costmap/costmap_updates move_base/NavfnROS/plan move_base/TrajectoryPlannerROS/local_plan)
 sub_nodes=(rviz)
 sub_robot_len=${#namespace[@]}
