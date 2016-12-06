@@ -14,7 +14,7 @@ class AADI{
 } ;
 
 AADI::AADI(ros::NodeHandle nh){
-  subHelloString = nh.subscribe("/vostro/vostro_message", 10, &AADI::stringCallback, this) ;
+  subHelloString = nh.subscribe("/sender/original_message", 10, &AADI::stringCallback, this) ;
   pubHandshake = nh.advertise<std_msgs::String>("handshake", 10, true) ;
 }
 
