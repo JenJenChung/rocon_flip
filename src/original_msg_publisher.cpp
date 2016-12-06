@@ -7,7 +7,7 @@ int main(int argc, char **argv)
   
   ros::NodeHandle nHandle ;
   
-  Vostro v(nHandle) ;
+  Sender s(nHandle) ;
   
   ros::spin() ;
   return 0 ;
