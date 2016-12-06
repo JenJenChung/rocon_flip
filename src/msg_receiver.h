@@ -1,5 +1,6 @@
 #include <ros/ros.h>
 #include <ros/console.h>
+#include <string>
 #include "std_msgs/String.h"
 
 class AADI{
@@ -9,6 +10,8 @@ class AADI{
   private:
     ros::Subscriber subHelloString ;
     ros::Publisher pubHandshake ;
+
+    std::string gate_name ;
     
     void stringCallback(const std_msgs::String&) ;
 } ;
@@ -16,13 +19,15 @@ class AADI{
 AADI::AADI(ros::NodeHandle nh){
   subHelloString = nh.subscribe("/sender/original_message", 10, &AADI::stringCallback, this) ;
   pubHandshake = nh.advertise<std_msgs::String>("handshake", 10, true) ;
+  
+  ros::param::get("/gateway/name",gate_name) ;
 }
 
 void AADI::stringCallback(const std_msgs::String& msg){
-  ROS_INFO("Message received from vostro gateway!") ;
+  ROS_INFO("Message received from sender!") ;
   ROS_INFO_STREAM("Message reads: " << msg.data ) ;
   
   std_msgs::String s ;
-  s.data = "Hello from AADI1!" ;
+  s.data = "Hello from " + gate_name + "!" ;
   pubHandshake.publish(s) ;
 }
