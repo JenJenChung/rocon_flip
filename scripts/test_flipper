@@ -10,7 +10,7 @@
 #done
 
 gate=(aadi1_gateway)
-namespace=(vostro)
+namespace=(sender)
 pub_topics=(original_message)
 pub_nodes=(original_msg_publisher)
 pub_len=${#pub_topics[@]}
