@@ -1,5 +1,6 @@
 #include <ros/ros.h>
 #include <ros/console.h>
+#include <string>
 #include "std_msgs/String.h"
 #include "std_msgs/Bool.h"
 
@@ -12,6 +13,8 @@ class Vostro{
     ros::Publisher pubHelloString ;
     ros::Publisher pubAckHandshake ;
     
+    std::string gate_name ;
+    
     void handshakeCallback(const std_msgs::String&) ;
 } ;
 
@@ -21,7 +24,8 @@ Vostro::Vostro(ros::NodeHandle nh){
   pubAckHandshake = nh.advertise<std_msgs::Bool>("msg_ack", 10, true) ;
   
   std_msgs::String s ;
-  s.data = "Hello from Vostro!" ;
+  ros::param::get("gateway/name",gate_name) ;
+  s.data = "Hello from " + gate_name + "!" ;
   pubHelloString.publish(s) ;
 }
 
