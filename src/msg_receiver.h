@@ -3,12 +3,13 @@
 #include <string>
 #include "std_msgs/String.h"
 
-class AADI{
+class Receiver{
   public:
-    AADI(ros::NodeHandle) ;
-    ~AADI(){}
+    Receiver(ros::NodeHandle) ;
+    ~Receiver(){}
   private:
     ros::Subscriber subHelloString ;
+    ros::Subscriber subHelloStringNoNamespace ;
     ros::Publisher pubHandshake ;
 
     std::string gate_name ;
@@ -16,14 +17,15 @@ class AADI{
     void stringCallback(const std_msgs::String&) ;
 } ;
 
-AADI::AADI(ros::NodeHandle nh){
-  subHelloString = nh.subscribe("/sender/original_message", 10, &AADI::stringCallback, this) ;
+Receiver::Receiver(ros::NodeHandle nh){
+  subHelloString = nh.subscribe("/sender/original_message", 10, &Receiver::stringCallback, this) ;
+  subHelloStringNoNamespace = nh.subscribe("/original_message", 10, &Receiver::stringCallback, this) ;
   pubHandshake = nh.advertise<std_msgs::String>("handshake", 10, true) ;
   
   ros::param::get("/gateway/name",gate_name) ;
 }
 
-void AADI::stringCallback(const std_msgs::String& msg){
+void Receiver::stringCallback(const std_msgs::String& msg){
   ROS_INFO("Message received from sender!") ;
   ROS_INFO_STREAM("Message reads: " << msg.data ) ;
   

@@ -7,7 +7,7 @@ int main(int argc, char **argv)
   
   ros::NodeHandle nHandle ;
   
-  AADI a(nHandle) ;
+  Receiver r(nHandle) ;
   
   ros::spin() ;
   return 0 ;
