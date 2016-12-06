@@ -1,0 +1,3 @@
+<launch>
+  <node pkg="rocon_flip" type="aadi_publisher" name="aadi_publisher" ns="aadi1" output="screen"/>
+</launch>
