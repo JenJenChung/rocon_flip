@@ -19,10 +19,10 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(vostro_publisher src/vostro_publisher.cpp)
-target_link_libraries(vostro_publisher ${catkin_LIBRARIES})
-add_dependencies(vostro_publisher ${catkin_EXPORTED_TARGETS})
+add_executable(original_msg_publisher src/original_msg_publisher.cpp)
+target_link_libraries(original_msg_publisher ${catkin_LIBRARIES})
+add_dependencies(original_msg_publisher ${catkin_EXPORTED_TARGETS})
 
-add_executable(aadi_publisher src/aadi_publisher.cpp)
-target_link_libraries(aadi_publisher ${catkin_LIBRARIES})
-add_dependencies(aadi_publisher ${catkin_EXPORTED_TARGETS})
+add_executable(msg_receiver src/msg_receiver.cpp)
+target_link_libraries(msg_receiver ${catkin_LIBRARIES})
+add_dependencies(msg_receiver ${catkin_EXPORTED_TARGETS})

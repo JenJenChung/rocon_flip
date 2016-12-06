@@ -16,9 +16,9 @@ class Vostro{
 } ;
 
 Vostro::Vostro(ros::NodeHandle nh){
-  subHandshake = nh.subscribe("/aadi1/handshake", 10, &Vostro::handshakeCallback, this) ;
-  pubHelloString = nh.advertise<std_msgs::String>("vostro_message", 10, true) ;
-  pubAckHandshake = nh.advertise<std_msgs::Bool>("vostro_ack", 10, true) ;
+  subHandshake = nh.subscribe("/receiver/handshake", 10, &Vostro::handshakeCallback, this) ;
+  pubHelloString = nh.advertise<std_msgs::String>("original_message", 10, true) ;
+  pubAckHandshake = nh.advertise<std_msgs::Bool>("msg_ack", 10, true) ;
   
   std_msgs::String s ;
   s.data = "Hello from Vostro!" ;

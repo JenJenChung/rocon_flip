@@ -1,13 +1,13 @@
 #include "ros/ros.h"
-#include "aadi_publisher.h"
+#include "original_msg_publisher.h"
 
 int main(int argc, char **argv)
 {  
-  ros::init(argc, argv, "aadi_publisher") ;
+  ros::init(argc, argv, "original_msg_publisher") ;
   
   ros::NodeHandle nHandle ;
   
-  AADI a(nHandle) ;
+  Vostro v(nHandle) ;
   
   ros::spin() ;
   return 0 ;

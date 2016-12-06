@@ -11,8 +11,8 @@
 
 gate=(aadi1_gateway)
 namespace=(vostro)
-pub_topics=(vostro_message)
-pub_nodes=(vostro_publisher)
+pub_topics=(original_message)
+pub_nodes=(original_msg_publisher)
 pub_len=${#pub_topics[@]}
 
 for (( i=0; i<${pub_len}; i++ )); do
