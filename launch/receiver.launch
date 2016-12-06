@@ -1,0 +1,3 @@
+<launch>
+  <node pkg="rocon_flip" type="msg_receiver" name="msg_receiver" ns="receiver" output="screen"/>
+</launch>
