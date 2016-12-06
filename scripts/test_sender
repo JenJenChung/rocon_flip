@@ -7,9 +7,20 @@ pub_topics=(original_message)
 pub_nodes=(original_msg_publisher)
 pub_len=${#pub_topics[@]}
 
+remote_namespace=(receiver)
+sub_topics=(machine_name)
+sub_nodes=(original_msg_publisher)
+sub_len=${#sub_topics[@]}
+
 #for (( j=0; j<${gate_len}; j++ )); do
 #  for (( i=0; i<${pub_len}; i++ )); do
 #    rosrun rocon_flip generic_flip_publisher.py -g ${gate[$j]} -l ${local_namespace[0]} -t ${pub_topics[$i]} -n ${pub_nodes[$i]}
+#  done
+#done
+
+#for (( j=0; j<${gate_len}; j++ )); do
+#  for (( i=0; i<${sub_len}; i++ )); do
+#    rosrun rocon_flip generic_flip_subscriber.py -g ${gate[$j]} -r ${remote_namespace[0]} -l ${local_namespace[0]} -t ${sub_topics[$i]} -n ${sub_nodes[$i]}
 #  done
 #done
 
@@ -19,13 +30,8 @@ for (( j=0; j<${gate_len}; j++ )); do
   done
 done
 
-remote_namespace=(receiver)
-sub_topics=(machine_name)
-sub_nodes=(original_msg_publisher)
-sub_len=${#sub_topics[@]}
-
 for (( j=0; j<${gate_len}; j++ )); do
   for (( i=0; i<${sub_len}; i++ )); do
-    rosrun rocon_flip generic_flip_subscriber.py -g ${gate[$j]} -r ${remote_namespace[0]} -l ${local_namespace[0]} -t ${sub_topics[$i]} -n ${sub_nodes[$i]}
+    rosrun rocon_flip generic_flip_subscriber.py -g ${gate[$j]} -r ${remote_namespace[0]} -t ${sub_topics[$i]} -n ${sub_nodes[$i]}
   done
 done

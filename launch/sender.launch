@@ -1,3 +1,4 @@
 <launch>
   <node pkg="rocon_flip" type="original_msg_publisher" name="original_msg_publisher" output="screen"/>
+<!--  <node pkg="rocon_flip" type="original_msg_publisher" name="original_msg_publisher" output="screen" ns="sender"/>-->
 </launch>
