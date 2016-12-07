@@ -7,7 +7,7 @@ sub_nodes=(amcl move_base)
 sub_len=${#sub_topics[@]}
 
 for (( i=0; i<${sub_len}; i++ )); do
-  rosrun rocon_flip generic_flip_subscriber.py -g ${gate[0]} -t ${sub_topics[$i]} -r ${namespace[0]}
+  rosrun rocon_flip generic_flip_subscriber.py -g ${gate[0]} -t ${sub_topics[$i]} -r ${namespace[0]} -l ${namespace[0]}
 done
 
 pub_topics=(pioneer/cmd_vel)
@@ -15,6 +15,6 @@ pub_nodes=(move_base_recover)
 pub_len=${#pub_topics[@]}
 
 for (( i=0; i<${pub_len}; i++ )); do
-  rosrun rocon_flip generic_flip_publisher.py -g ${gate[0]} -t ${pub_topics[$i]}} -l ${namespace[0]}
+  rosrun rocon_flip generic_flip_publisher.py -g ${gate[0]} -t ${pub_topics[$i]} -l ${namespace[0]}
 done
 
