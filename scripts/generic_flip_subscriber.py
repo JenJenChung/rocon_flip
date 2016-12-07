@@ -16,7 +16,7 @@ def flip(gate, remote, local, topic, node):
   req.remotes = []
   rule = gateway_msgs.Rule()
   if not remote:
-    rule.name = '/' + topic ;
+    rule.name = '/' + topic[0] ;
   else:
     rule.name = '/' + remote[0] + '/' + topic[0]
   rule.type = gateway_msgs.ConnectionType.SUBSCRIBER
