@@ -2,6 +2,10 @@
 
 advertise_topics=(clock map tf tf_static)
 
+#for i in ${advertise_topics[@]}; do
+#  rosrun rocon_flip advertise_hub_publisher.py $i
+#done
+
 for i in ${advertise_topics[@]}; do
-  rosrun rocon_flip advertise_hub_publisher.py $i
+  rosrun rocon_flip generic_advertiser.py -t $i
 done

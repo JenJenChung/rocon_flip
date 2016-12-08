@@ -1,14 +1,21 @@
 #!/bin/bash
 
 namespace=(pioneer1 pioneer2) #pioneer2 pioneer3 pioneer4 pioneer5)
-remotes=(aadi1 aadi4) #aadi2 aadi3 aadi4 aadi5)
-sub_topics=(/tf move_base/current_goal move_base/local_costmap/costmap move_base/local_costmap/costmap_updates move_base/NavfnROS/plan move_base/TrajectoryPlannerROS/local_plan)
-sub_nodes=(rviz)
-sub_robot_len=${#namespace[@]}
-sub_topic_len=${#sub_topics[@]}
+remotes=(aadi1 aadi4)
+gates=(aadi1_gateway aadi4_gateway)
+topics=(/tf move_base/current_goal move_base/local_costmap/costmap move_base/local_costmap/costmap_updates move_base/NavfnROS/plan move_base/TrajectoryPlannerROS/local_plan)
+nodes=(/rviz)
+robot_len=${#namespace[@]}
+topic_len=${#topics[@]}
 
-for (( i=0; i<${sub_robot_len}; i++ )); do
-  for (( j=0; j<${sub_topic_len}; j++ )); do
-    rosrun rocon_flip flip_hub_subscriber.py ${namespace[$i]} ${sub_topics[$j]} ${sub_nodes[0]} ${remotes[$i]}
+#for (( i=0; i<${robot_len}; i++ )); do
+#  for (( j=0; j<${topic_len}; j++ )); do
+#    rosrun rocon_flip flip_hub_subscriber.py ${namespace[$i]} ${topics[$j]} ${nodes[0]} ${remotes[$i]}
+#  done
+#done
+
+for (( i=0; i<${robot_len}; i++ )); do
+  for (( j=0; j<${topic_len}; j++ )); do
+    rosrun rocon_flip generic_flip_subscriber.py -g ${gates[$i]} -l ${namespace[$i]} -r ${namespace[$i]} -t ${topics[$j]} -n ${nodes[0]}
   done
 done
