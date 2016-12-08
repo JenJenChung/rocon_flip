@@ -10,7 +10,7 @@ def pull(gate, remote, local, topic, node):
   rospy.init_node('generic_puller')
   
   rospy.wait_for_service('/gateway/pull')
-  remote_gateway = gate
+  remote_gateway = gate[0]
   pull_service = rospy.ServiceProxy('/gateway/pull', gateway_srvs.Remote)
   req = gateway_srvs.RemoteRequest()
   req.cancel = False
