@@ -1,0 +1,9 @@
+#!/bin/bash
+
+pull_gates=(Hub_Gateway)
+pull_topics=(utm_graph)
+gate_len=${#gate[@]}
+
+for (( i=0; i<${gate_len}; i++ )); do
+  rosrun rocon_flip generic_puller.py -g ${pull_gates[$i]} -t ${pull_topics[$i]}
+done

@@ -1,0 +1,12 @@
+#!/bin/bash
+ 
+my_pid=$$
+echo "My process ID is $my_pid"
+
+export ROBOT_NAME="pioneer"
+
+echo "Pulling advertised topics..."
+rosrun rocon_flip traffic-pull-from-hub-utm
+
+echo "Flipping topics from local machine..."
+rosrun rocon_flip traffic-flip-to-hub-utm
