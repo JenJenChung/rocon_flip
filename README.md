@@ -28,7 +28,7 @@ See test_sender, test_receiver, advertise_from_hub, pull_from_hub for examples o
 
 VERSIONS:
 This package currently contains old versions of the code in various python scripts.
-These will be slowly phased over the following months. Please only use the generic_*.py scripts in future projects.
+These will be slowly phased out over the following months. Please only use the generic_*.py scripts in future projects.
 
 TESTING:
 Two launch files, sender.launch and receiver.launch, can be used for testing network connection.

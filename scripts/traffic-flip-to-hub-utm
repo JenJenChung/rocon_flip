@@ -3,8 +3,8 @@
 gate=(Hub_Gateway)
 gate_len=${#gate[@]}
 local_namespace=($ROBOT_NAME)
-pub_topics=(odom membership delayed)
-pub_nodes=(pioneer3dx_odometry_publisher pioneer_traffic pioneer_traffic)
+pub_topics=(amcl_pose membership delayed)
+pub_nodes=(amcl pioneer_traffic pioneer_traffic)
 pub_len=${#pub_topics[@]}
 
 for (( j=0; j<${gate_len}; j++ )); do

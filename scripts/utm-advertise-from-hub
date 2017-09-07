@@ -1,0 +1,7 @@
+#!/bin/bash
+
+advertise_topics=(utm_graph)
+
+for i in ${advertise_topics[@]}; do
+  rosrun rocon_flip generic_advertiser.py -t $i
+done
