@@ -2,13 +2,12 @@
 
 gate=(Hub_Gateway)
 gate_len=${#gate[@]}
-local_namespace=($ROBOT_NAME)
-pub_topics=(membership delayed)
+pub_topics=($ROBOT_NAME/membership $ROBOT_NAME/delayed)
 pub_nodes=(pioneer_traffic pioneer_traffic)
 pub_len=${#pub_topics[@]}
 
 for (( j=0; j<${gate_len}; j++ )); do
   for (( i=0; i<${pub_len}; i++ )); do
-    rosrun rocon_flip generic_flip_publisher.py -g ${gate[$j]} -l ${local_namespace[0]} -t ${pub_topics[$i]} -n ${pub_nodes[$i]}
+    rosrun rocon_flip generic_flip_publisher.py -g ${gate[$j]} -t ${pub_topics[$i]} -n ${pub_nodes[$i]}
   done
 done
